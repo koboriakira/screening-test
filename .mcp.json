@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "screening-test": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        ".",
+        "python",
+        "-m",
+        "screening_test.mcp_server"
+      ]
+    }
+  }
+}
