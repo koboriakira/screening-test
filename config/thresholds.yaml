@@ -1,0 +1,52 @@
+# スクリーニング閾値設定
+# この設定ファイルを編集することでスクリーニング基準を固定化・再現可能にする
+
+scoring:
+  # バリュースコア配分（合計100点）
+  per_max_points: 25
+  pbr_max_points: 25
+  dividend_yield_max_points: 20
+  roe_max_points: 15
+  revenue_growth_max_points: 15
+
+# 異常値フィルタ（サニタイズ閾値）
+sanitize:
+  max_dividend_yield: 15.0  # 配当利回り上限（%）
+  min_pbr: 0.1              # PBR下限
+  max_per: 200.0            # PER上限
+  min_per: 0.0              # PER下限
+
+# キャッシュ設定
+cache:
+  ttl_hours: 24             # キャッシュ有効期限（時間）
+
+# レートリミット
+rate_limit:
+  interval_seconds: 1.0     # API呼び出し間隔（秒）
+
+# スクリーニングプリセット重み
+presets:
+  value:
+    per: 1.5
+    pbr: 1.5
+    dividend_yield: 1.0
+    roe: 0.5
+    revenue_growth: 0.5
+  growth:
+    per: 0.5
+    pbr: 0.5
+    dividend_yield: 0.3
+    roe: 1.2
+    revenue_growth: 1.5
+  dividend:
+    per: 0.8
+    pbr: 0.8
+    dividend_yield: 1.8
+    roe: 0.8
+    revenue_growth: 0.3
+  balanced:
+    per: 1.0
+    pbr: 1.0
+    dividend_yield: 1.0
+    roe: 1.0
+    revenue_growth: 1.0
